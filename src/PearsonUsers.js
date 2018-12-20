@@ -43,14 +43,18 @@ export class PearsonUsers extends Component {
       }
       throw new Error("Network response was not ok.");
     });
-    const users = jsonObj.data;
-    this._udpateUsersInState(users);
+    this._udpateUsersInState(jsonObj.data);
   };
 
   _udpateUsersInState = (newUsers = []) => {
-    let users = [...this.state.users, ...newUsers];
+    let users = this._deleteDuplicates([...this.state.users, ...newUsers]);
     this.setState({ users });
   };
+
+  _deleteDuplicates = users =>
+    users.filter(
+      (user, index, users) => index === users.findIndex(u => u.id === user.id)
+    );
 
   _getUsersInfo = (arrayUsers = []) =>
     arrayUsers.map(user => (
