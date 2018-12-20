@@ -48,6 +48,7 @@ export class PearsonUsers extends Component {
 
   _udpateUsersInState = (newUsers = []) => {
     let users = this._deleteDuplicates([...this.state.users, ...newUsers]);
+
     this.setState({ users });
   };
 
@@ -55,6 +56,15 @@ export class PearsonUsers extends Component {
     users.filter(
       (user, index, users) => index === users.findIndex(u => u.id === user.id)
     );
+
+  _deleteUserById = id => {
+    let users = [...this.state.users];
+    let indexOfUserToDelete = users.findIndex(user => user.id === id);
+    users = [
+      ...users.slice(0, indexOfUserToDelete),
+      ...users.slice(indexOfUserToDelete + 1)
+    ];
+  };
 
   _getUsersInfo = (arrayUsers = []) =>
     arrayUsers.map(user => (
