@@ -2,6 +2,9 @@ import React from "react";
 import styles from "./PearsonUserProfile.module.css";
 
 export class PearsonUserProfile extends React.Component {
+  _deleteUser = () => {
+    this.props.deleteUser(this.props.id);
+  };
   render() {
     return (
       <div className={styles.pearsonUserProfileBox}>
@@ -13,7 +16,9 @@ export class PearsonUserProfile extends React.Component {
         <div className={styles.pearsonUserName}>
           {this.props.first_name} {this.props.last_name}
         </div>
-        <div className={styles.personUserButtons}>Delete</div>
+        <div onClick={this._deleteUser} className={styles.personUserButtons}>
+          Delete
+        </div>
       </div>
     );
   }

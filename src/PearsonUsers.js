@@ -66,6 +66,9 @@ export class PearsonUsers extends Component {
       ...users.slice(0, indexOfUserToDelete),
       ...users.slice(indexOfUserToDelete + 1)
     ];
+    this.setState({
+      users
+    });
   };
 
   _getUsersInfo = (arrayUsers = []) =>
@@ -76,6 +79,7 @@ export class PearsonUsers extends Component {
         first_name={user.first_name}
         last_name={user.last_name}
         avatar={user.avatar}
+        deleteUser={this._deleteUserById}
       />
     ));
 
