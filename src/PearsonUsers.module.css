@@ -1,6 +1,8 @@
 .pearsonUserHeading {
   font-size: 36px;
+  margin: 50px;
 }
+
 .pearsonUsers {
   display: flex;
   flex-wrap: wrap;

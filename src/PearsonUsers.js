@@ -82,8 +82,8 @@ export class PearsonUsers extends Component {
   render() {
     const usersInfo = this._getUsersInfo(this.state.users);
     return (
-      <div className="person-users">
-        <h1>Pearson User Management</h1>
+      <div>
+        <h1 className={styles.pearsonUserHeading}>Pearson User Management</h1>
         <div className={styles.pearsonUsers}>{usersInfo}</div>
       </div>
     );
