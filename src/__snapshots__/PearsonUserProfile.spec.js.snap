@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PearsonUserProfile renders Pearson User Profile as per the snapshot 1`] = `
+<div
+  className="pearsonUserProfileBox"
+>
+  <img
+    alt="User Profile"
+    className="pearsonUserProfileAvatar"
+    src="https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg"
+  />
+  <div
+    className="pearsonUserName"
+  >
+    Eve
+     
+    Holt
+  </div>
+  <div
+    className="personUserButtons"
+    onClick={[Function]}
+  >
+    Delete
+  </div>
+</div>
+`;

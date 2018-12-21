@@ -1,16 +1,35 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { PearsonUsers } from "./PearsonUsers";
+import { PearsonUserProfile } from "./PearsonUserProfile";
+import renderer from "react-test-renderer";
 
-describe("PearsonUsers", () => {
+describe("PearsonUserProfile", () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<PearsonUsers />);
+    component = shallow(<PearsonUserProfile />);
   });
 
-  it("renders a h1", () => {
-    const h1 = component.find("h1");
-    expect(h1.text()).toEqual("Pearson User Management");
+  it("renders three divs", () => {
+    expect(component.find("div")).toHaveLength(3);
+  });
+
+  it("renders an img tag for Avatar", () => {
+    expect(component.find("img")).toHaveLength(1);
+  });
+
+  it("renders Pearson User Profile as per the snapshot", () => {
+    const tree = renderer
+      .create(
+        <PearsonUserProfile
+          key="1"
+          id="1"
+          first_name="Eve"
+          last_name="Holt"
+          avatar="https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg"
+        />
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

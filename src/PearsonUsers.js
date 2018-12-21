@@ -50,7 +50,6 @@ export class PearsonUsers extends Component {
 
   _udpateUsersInState = (newUsers = []) => {
     let users = this._deleteDuplicates([...this.state.users, ...newUsers]);
-
     this.setState({ users });
   };
 
