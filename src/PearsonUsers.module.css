@@ -1,0 +1,10 @@
+.pearsonUserHeading {
+  font-size: 36px;
+}
+.pearsonUsers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 100px;
+  background-color: #d8d8d8;
+}

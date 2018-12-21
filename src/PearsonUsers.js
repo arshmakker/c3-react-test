@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { PearsonUserProfile } from "./PearsonUserProfile";
+import styles from "./PearsonUsers.module.css";
 
 export class PearsonUsers extends Component {
   constructor(props) {
@@ -68,19 +70,21 @@ export class PearsonUsers extends Component {
 
   _getUsersInfo = (arrayUsers = []) =>
     arrayUsers.map(user => (
-      <div key={user.id}>
-        <div>{user.first_name}</div>
-        <div>{user.last_name}</div>
-        <div>{user.avatar}</div>
-      </div>
+      <PearsonUserProfile
+        key={user.id}
+        id={user.id}
+        first_name={user.first_name}
+        last_name={user.last_name}
+        avatar={user.avatar}
+      />
     ));
 
   render() {
     const usersInfo = this._getUsersInfo(this.state.users);
     return (
-      <div className="pearon-users">
+      <div className="person-users">
         <h1>Pearson User Management</h1>
-        {usersInfo}
+        <div className={styles.pearsonUsers}>{usersInfo}</div>
       </div>
     );
   }

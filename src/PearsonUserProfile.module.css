@@ -1,0 +1,26 @@
+.pearsonUserProfileBox {
+  width: 212px;
+  line-height: 12px;
+  text-align: center;
+  margin: 37px;
+  background-color: white;
+}
+.pearsonUserName {
+  color: #e93939;
+  position: relative;
+  top: -15px;
+}
+.pearsonUserProfileAvatar {
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  position: relative;
+  top: -38px;
+}
+
+.personUserButtons {
+  text-align: left;
+  margin: 5px;
+  width: 50px;
+  cursor: pointer;
+}
