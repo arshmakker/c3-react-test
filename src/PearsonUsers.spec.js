@@ -2,7 +2,6 @@ import React from "react";
 import { shallow } from "enzyme";
 import { PearsonUsers } from "./PearsonUsers";
 import { PearsonUserProfile } from "./PearsonUserProfile";
-import renderer from "react-test-renderer";
 
 describe("PearsonUsers", () => {
   let component;
@@ -16,7 +15,7 @@ describe("PearsonUsers", () => {
     expect(h1.text()).toEqual("Pearson User Management");
   });
 
-  it("deletes duplicates users from the state", () => {
+  it("Deletes duplicates users from the state", () => {
     const componentInstance = component.instance();
     const state = {
       users: [
@@ -67,7 +66,7 @@ describe("PearsonUsers", () => {
     expect(componentInstance._deleteDuplicates(state.users)).toHaveLength(3);
   });
 
-  it("renders atleast on Pearson User Profile", () => {
+  it("Renders atleast on Pearson User Profile", () => {
     expect(component.find(PearsonUserProfile).length).toBeGreaterThan(1);
   });
 });
