@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { PearsonUserProfile } from "./PearsonUserProfile";
 import styles from "./PearsonUsers.module.css";
+import fetchUsers from "./services/fetchUsers";
 
 export class PearsonUsers extends Component {
   constructor(props) {
@@ -37,15 +38,10 @@ export class PearsonUsers extends Component {
     this._fetchUsers();
   }
   _fetchUsers = async (page = 1, per_page = 10) => {
-    let jsonObj = await fetch(
-      `https://reqres.in/api/users?page=${page}&per_page=${per_page}`
-    ).then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error("Network response was not ok.");
-    });
-    this._udpateUsersInState(jsonObj.data);
+    try {
+      const newUsers = await fetchUsers(page, per_page);
+      this._udpateUsersInState(newUsers);
+    } catch (error) {}
   };
 
   _udpateUsersInState = (newUsers = []) => {
